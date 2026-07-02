@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Услуги</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-main block-main2">
+                <img src="img/bg2.webp" alt="" class="block-main__bg1">
+                <img src="img/image1.webp" alt="" class="block-main__pic1">
+                <img src="img/image3.webp" alt="" class="block-main__pic2">
+                <div class="container">
+                    <div class="breadcrumbs">
+                        <ul>
+                            <li>
+                                <a href="#" class="home">
+                                    <svg aria-hidden="true" width="12" height="10">
+                                        <use xlink:href="img/sprite.svg#home"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li><span>Услуги</span></li>
+                        </ul>
+                    </div>
+                    <h1 class="title1">Услуги</h1>
+                </div>
+            </div>
+
+            <div class="block-section">
+                <div class="container">
+                    <div class="block-section__content">
+                        <img loading="lazy" src="img/image4.webp" alt="" class="block-section__pic1">
+                        <img loading="lazy" src="img/image5.webp" alt="" class="block-section__pic2">
+                        <div class="block-section__body">
+                            <div class="block-section__icon">
+                                <svg aria-hidden="true" width="35" height="40">
+                                    <use xlink:href="img/sprite.svg#pdf"></use>
+                                </svg>
+                            </div>
+                            <div class="block-section__titles">
+                                <div class="block-section__title">
+                                    Актуальные цены на весь ассортимент
+                                </div>
+                                <p>
+                                    Ознакомьтесь со стоимостью саженцев яблонь, груш, косточковых культур и декоративных
+                                    деревьев. В прайс-листе так же указаны характеристики подвоев сортов
+                                </p>
+                            </div>
+                            <a href="#" download="#download" class="btn">
+                                <span>Скачать прайс-лист</span>
+                                <svg aria-hidden="true" width="18" height="20">
+                                    <use xlink:href="img/sprite.svg#pdf"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-seo">
+                <img loading="lazy" src="img/image6.webp" alt="" class="block-seo__pic1">
+                <img loading="lazy" src="img/image7.webp" alt="" class="block-seo__pic2">
+                <img loading="lazy" src="img/image1.webp" alt="" class="block-seo__pic3">
+                <div class="container">
+                    <div class="block-seo__content">
+                        <div class="block-seo__body">
+                            <h2 class="title2">
+                                Как выполнить посадку саженцев яблони?
+                            </h2>
+                            <div data-showmore="items" class="showmore">
+                                <div data-showmore-content="3" class="showmore__content">
+                                    <p>
+                                        Яблоня, является самой распространенной семечковой культурой во всем мире. На
+                                        сегодняшний день она спокойно может произрастать как в южных регионах, так и в
+                                        северных.
+                                    </p>
+                                    <p>
+                                        Яблоня – не прихотливое дерево и спокойно может расти даже на почвах с
+                                        повышенной кислотностью. Высаживать саженцы яблонь лучше всего на хорошо
+                                        освещаемых участках.
+                                    </p>
+                                    <p>
+                                        Для яблони желательно, чтобы почва была хорошо проницаемой, легкой и
+                                        плодородной. На глинистой и тяжелой почве яблоня будет плохо расти, поэтому при
+                                        выкапывании посадочной ямы
+                                    </p>
+                                    <p>
+                                        Для яблони желательно, чтобы почва была хорошо проницаемой, легкой и
+                                        плодородной. На глинистой и тяжелой почве яблоня будет плохо расти, поэтому при
+                                        выкапывании посадочной ямы
+                                    </p>
+                                </div>
+                                <button hidden data-showmore-button type="button" class="showmore__more">
+                                    <span>
+                                        Читать полностью
+                                        <svg aria-hidden="true" width="21" height="13">
+                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                        </svg>
+                                    </span>
+                                    <span>
+                                        Скрыть
+                                        <svg aria-hidden="true" width="21" height="13">
+                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="block-seo__image">
+                            <img loading="lazy" src="img/image8.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>
