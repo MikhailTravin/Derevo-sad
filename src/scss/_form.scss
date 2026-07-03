@@ -188,3 +188,99 @@ $starActive: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZp
         }
     }
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    // .form__inputs
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    // .form__input
+
+    &__input {
+        .input {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 143%;
+            padding: 0px 30px;
+            border-radius: 12px;
+            background: var(--f0f4ed);
+            border: 1px solid transparent;
+            width: 100%;
+            height: 60px;
+            transition: border 0.3s;
+            &::placeholder {
+                color: rgba(16, 36, 24, 0.7);
+            }
+            &._form-error {
+                border: 1px solid var(--ed4f37);
+            }
+            &._form-focus {
+                border: 1px solid var(--326045);
+            }
+            &.textarea {
+                resize: none;
+                height: 100px;
+                padding: 19px 30px;
+            }
+        }
+    }
+
+    // .form__rating
+
+    &__rating {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        color: var(--326045);
+        gap: 10px;
+        .rating {
+            --star-gap: 5px;
+            --star-width: 20px;
+            --star-height: 20px;
+        }
+    }
+
+    // .form__bottom
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        @media (max-width: 768px) {
+            gap: 20px;
+        }
+        .btn {
+            width: 100%;
+        }
+    }
+
+    // .form__text
+
+    &__text {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 138%;
+        text-align: center;
+        color: var(--76a16b);
+        @media (max-width: 550px) {
+            font-size: 12px;
+        }
+        a {
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+            transition: opacity 0.3s;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
