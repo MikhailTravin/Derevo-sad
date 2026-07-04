@@ -39,6 +39,18 @@ body {
       }
     }
   }
+  .filter-open & {
+    overflow: hidden;
+    &::before {
+      content: "";
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 108;
+      @media (max-width: 550px){
+          display: none;
+      }
+    }
+  }
   .catalog-open & {
     @media (max-width: 768px) {
       overflow: hidden;

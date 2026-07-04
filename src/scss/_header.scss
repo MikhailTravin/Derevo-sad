@@ -318,7 +318,7 @@
         transition: background-color 0.3s;
         .icon-menu {
             width: 11px;
-            height: 8px;
+            height: 8.4px;
             span,
             &::before,
             &::after {
@@ -667,10 +667,19 @@
         @media (max-width: 768px) {
             background-color: var(--ffffff);
         }
+        &._spoller-active {
+            background-color: var(--76a16b);
+        }
         &:hover {
             background-color: var(--76a16b);
             .menu-catalog__title {
                 color: var(--ffffff);
+            }
+            .menu-catalog__arrow {
+                svg {
+                    stroke: var(--ffffff);
+                    color: var(--ffffff);
+                }
             }
         }
     }
@@ -684,6 +693,19 @@
         gap: 15px;
         min-height: 60px;
         padding: 10px 15px 10px 15px;
+        width: 100%;
+        &._spoller-active {
+            .menu-catalog__title {
+                color: var(--ffffff);
+            }
+            .menu-catalog__arrow {
+                svg {
+                    stroke: var(--ffffff);
+                    color: var(--ffffff);
+                    transform: rotate(-180deg);
+                }
+            }
+        }
     }
 
     // .menu-catalog__titles
@@ -704,10 +726,39 @@
     // .menu-catalog__title
 
     &__title {
+        text-align: left;
         font-weight: 400;
         font-size: 16px;
         line-height: 138%;
         transition: color 0.3s;
+    }
+
+    // .menu-catalog__arrow
+
+    &__arrow {
+        svg {
+            stroke: var(--76a16b);
+            color: var(--76a16b);
+            fill: none;
+            transition:
+                transform 0.3s,
+                stroke 0.3s,
+                color 0.3s;
+        }
+    }
+    // .menu-catalog__body
+
+    &__body {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 15px 25px 15px 25px;
+    }
+
+    // .menu-catalog__checkboxes
+
+    &__checkboxes {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
 

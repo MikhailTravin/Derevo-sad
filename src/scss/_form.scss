@@ -7,15 +7,17 @@
         width: 0;
         height: 0;
         opacity: 0;
-        &:checked + .checkbox__label .checkbox__text {
-            color: #e21e2b;
-        }
-        &:checked + .checkbox__label .checkbox__icon img {
+        &:checked + .checkbox__label .checkbox__icon svg {
             opacity: 1;
         }
         &:checked + .checkbox__label .checkbox__icon {
-            border: 1px solid transparent;
-            background-color: #e21e2b;
+            background-color: var(--326045);
+        }
+        &:hover + .checkbox__label .checkbox__text {
+            color: var(--edb737-2-paints);
+        }
+        &:hover + .checkbox__label .checkbox__icon {
+            background-color: var(--edb737-2-paints);
         }
     }
 
@@ -24,14 +26,13 @@
     &__label {
         cursor: pointer;
         display: flex;
-        gap: 10px;
+        gap: 15px;
     }
 
     // .checkbox__icon
 
     &__icon {
-        border: 1px solid #dbdbdb;
-        border-radius: 3px;
+        border-radius: 4px;
         background-color: #fff;
         width: 20px;
         height: 20px;
@@ -39,24 +40,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition:
-            background-color 0.3s,
-            border 0.3s;
+        transition: background-color 0.3s;
         @media (max-width: 768px) {
             width: 16px;
             height: 16px;
             flex: 0 0 16px;
         }
-        img {
-            display: block;
-            margin-right: -1px;
-            width: 14px;
-            height: auto;
+        svg {
+            fill: var(--ffffff);
             opacity: 0;
             transition: opacity 0.3s;
-            @media (max-width: 768px) {
-                width: 12px;
-            }
         }
     }
 
@@ -64,15 +57,9 @@
 
     &__text {
         font-weight: 300;
-        font-size: 16px;
-        line-height: 130%;
-        text-transform: uppercase;
-        span {
-            color: #878787;
-        }
-        @media (max-width: 768px) {
-            font-size: 14px;
-        }
+        font-size: 14px;
+        line-height: 143%;
+        color: var(--ffffff);
     }
 }
 
