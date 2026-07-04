@@ -331,11 +331,11 @@ function spollers() {
       const spollerTitle = el.closest("[data-spoller]");
       if (!spollerTitle) return;
 
-      if (el.closest('a') || el.tagName === 'A') {
+      if (el.closest('a') && !spollerTitle.closest('a')) {
         return;
       }
 
-      const spollerItem = spollerTitle.closest(".spollers__item, .cabinet-orders-spollers__item, .header-menu__item");
+      const spollerItem = spollerTitle.closest(".spollers__item, .cabinet-orders-spollers__item, .menu-catalog__item");
       const spollersBlock = spollerTitle.closest("[data-spollers]");
 
       if (!spollersBlock) return;
@@ -364,7 +364,7 @@ function spollers() {
       const spollerActiveTitle = spollersBlock.querySelector("[data-spoller]._spoller-active");
       const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
       if (spollerActiveTitle && !spollersBlock.querySelectorAll("._slide").length) {
-        const spollerItem = spollerActiveTitle.closest(".spollers__item, .cabinet-orders-spollers__item");
+        const spollerItem = spollerActiveTitle.closest(".spollers__item, .cabinet-orders-spollers__item, .menu-catalog__item");
 
         spollerActiveTitle.classList.remove("_spoller-active");
         if (spollerItem) spollerItem.classList.remove("_spoller-active");
@@ -382,7 +382,7 @@ function spollers() {
             const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
             spollerClose.classList.remove("_spoller-active");
 
-            const spollerItem = spollerClose.closest(".spollers__item, .cabinet-orders-spollers__item");
+            const spollerItem = spollerClose.closest(".spollers__item, .cabinet-orders-spollers__item, .menu-catalog__item");
             if (spollerItem) spollerItem.classList.remove("_spoller-active");
 
             _slideUp(spollerClose.nextElementSibling, spollerSpeed);
@@ -392,6 +392,7 @@ function spollers() {
     }
   }
 }
+
 spollers();
 window.addEventListener('resize', function () {
   spollers();
@@ -1415,5 +1416,75 @@ if (document.querySelector('.block-see-also__slider')) {
         spaceBetween: 22,
       },
     },
+  });
+}
+
+//========================================================================================================================================================
+
+
+const filterContainer = document.querySelector('.block-catalog-filter');
+if (filterContainer) {
+
+  const filterButton = document.querySelector('.block-catalog-filter__button');
+  const filterBody = document.querySelector('.block-catalog-filter__body');
+  const closeButton = document.querySelector('.block-catalog-filter__close');
+
+  function isMobile() {
+    return window.innerWidth <= 992;
+  }
+
+  function openFilter() {
+    if (!isMobile()) return;
+    document.documentElement.classList.add('filter-open');
+  }
+
+  function closeFilter() {
+    document.documentElement.classList.remove('filter-open');
+  }
+
+  filterButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!isMobile()) return;
+
+    if (document.documentElement.classList.contains('filter-open')) {
+      closeFilter();
+    } else {
+      openFilter();
+    }
+  });
+
+  closeButton.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (document.documentElement.classList.contains('filter-open')) {
+      closeFilter();
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!isMobile()) return;
+    if (!document.documentElement.classList.contains('filter-open')) return;
+
+    const isClickInsideBody = filterBody.contains(e.target);
+    const isClickOnButton = filterButton.contains(e.target);
+
+    if (!isClickInsideBody && !isClickOnButton) {
+      closeFilter();
+    }
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (!isMobile() && document.documentElement.classList.contains('filter-open')) {
+        closeFilter();
+      }
+    }, 200);
+  });
+
+  filterBody.addEventListener('click', function (e) {
+    e.stopPropagation();
   });
 }
