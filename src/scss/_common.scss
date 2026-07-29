@@ -14,47 +14,10 @@ body {
   .popup-show & {
     overflow: hidden;
   }
-  &::before {
-    content: "";
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 97;
-    background: rgba(16, 36, 24, 0.2);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-  }
-  .menu-open & {
-    overflow: hidden;
-    &::before {
-      content: "";
-      opacity: 1;
-      pointer-events: auto;
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-  }
-  .filter-open & {
-    overflow: hidden;
-    &::before {
-      content: "";
-      opacity: 1;
-      pointer-events: auto;
-      z-index: 108;
-      @media (max-width: 550px){
-          display: none;
-      }
-    }
-  }
+  .menu-open &,
+  .filter-open &,
   .catalog-open & {
-    @media (max-width: 768px) {
-      overflow: hidden;
-    }
+    overflow: hidden;
   }
 }
 

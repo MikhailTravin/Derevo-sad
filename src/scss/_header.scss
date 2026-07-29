@@ -11,6 +11,9 @@
             margin-bottom: 0px;
         }
     }
+    .menu-open & {
+        z-index: 100;
+    }
     // .header__content
 
     &__content {
