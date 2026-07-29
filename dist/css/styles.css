@@ -126,13 +126,57 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
   overflow: hidden;
 }
+.main-wrapper-outer::before {
+  content: "";
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 97;
+  background: rgba(16, 36, 24, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.menu-open .main-wrapper-outer::before {
+  content: "";
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (max-width: 768px) {
+  .menu-open .main-wrapper-outer::before {
+    display: none;
+  }
+}
+.filter-open .main-wrapper-outer::before {
+  content: "";
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 108;
+}
+@media (max-width: 550px) {
+  .filter-open .main-wrapper-outer::before {
+    display: none;
+  }
+}
 
 .main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
   margin: 120px 0px 0px 0px;
 }
 @media (max-width: 1336px) {
@@ -466,52 +510,8 @@ body.hide-scrollbar {
 .popup-show body {
   overflow: hidden;
 }
-body::before {
-  content: "";
-  cursor: pointer;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 97;
-  background: rgba(16, 36, 24, 0.2);
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-}
-.menu-open body {
+.menu-open body, .filter-open body, .catalog-open body {
   overflow: hidden;
-}
-.menu-open body::before {
-  content: "";
-  opacity: 1;
-  pointer-events: auto;
-}
-@media (max-width: 768px) {
-  .menu-open body::before {
-    display: none;
-  }
-}
-.filter-open body {
-  overflow: hidden;
-}
-.filter-open body::before {
-  content: "";
-  opacity: 1;
-  pointer-events: auto;
-  z-index: 108;
-}
-@media (max-width: 550px) {
-  .filter-open body::before {
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  .catalog-open body {
-    overflow: hidden;
-  }
 }
 
 body.noscroll {
@@ -4167,6 +4167,9 @@ a {
 }
 .header._header-scroll .header__logo {
   margin-bottom: 0px;
+}
+.menu-open .header {
+  z-index: 100;
 }
 .header__content {
   display: -webkit-box;
